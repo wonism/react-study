@@ -1,9 +1,9 @@
 # react-tutorial
 
 __LINK__
-## __[About React JS](https://github.com/wonism/react-study/blob/master/study/about-react.md)__
-## __[JSX](https://github.com/wonism/react-study/blob/master/study/jsx.md)__
-## __[State & Props](https://github.com/wonism/react-study/blob/master/study/state-and-props.md)__
+- [About React JS](https://github.com/wonism/react-study/blob/master/study/about-react.md)
+- [JSX](https://github.com/wonism/react-study/blob/master/study/jsx.md)
+- [State & Props](https://github.com/wonism/react-study/blob/master/study/state-and-props.md)
 
 __Example Code__
 ```html
