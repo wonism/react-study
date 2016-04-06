@@ -1,0 +1,34 @@
+'use strict';
+
+module.exports = {
+  devTool: 'eval',
+
+  entry: {
+    javascript: "../src/App.js"
+  },
+
+  output: {
+    path: (__dirname + "/dist").replace(/\/config/, ''),
+    filename: "react-application.js"
+  },
+
+  devServer: {
+    inline: true,
+    port: 3211
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ["react", "es2015"],
+          cacheDirectory: true
+        }
+      }
+    ]
+  }
+};
+
