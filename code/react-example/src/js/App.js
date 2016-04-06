@@ -1,19 +1,19 @@
-var React = require("react");
-var ReactDOM = require("react-dom");
+import React from 'react';
+import ReactDOM from 'react-dom';
+import List from './List';
 
-var List = require("./List");
-var Hello = React.createClass({
-  render: function(){
+class Hello extends React.Component {
+  render() {
     return (
-      <div className="greeting">
+      <div className='greeting'>
         <List name={ this.props.name } />
       </div>
-    )
-  }
-});
+    );
+  };
+};
 
 ReactDOM.render(
-  <Hello name="Jaewon" />,
-  document.getElementById("example")
+  <Hello name="jaewon" />,
+  document.getElementById('example')
 );
 

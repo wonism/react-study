@@ -1,15 +1,15 @@
-var React = require("react");
+import React from 'react';
 
-var List = React.createClass({
-  render: function(){
+class List extends React.Component {
+  render () {
     return (
       <div>
-        This Is List<br />
+        This Is List!<br />
         Hello, { this.props.name }!
       </div>
-    )
-  }
-});
+    );
+  };
+};
 
 module.exports = List;
 
