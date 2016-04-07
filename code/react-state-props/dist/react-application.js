@@ -71,6 +71,10 @@
 
 	var _Content2 = _interopRequireDefault(_Content);
 
+	var _Counter = __webpack_require__(162);
+
+	var _Counter2 = _interopRequireDefault(_Counter);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -82,20 +86,33 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+
+	    _this.state = {
+	      count: 0
+	    };
+
+	    _this._incrementCounter = _this._incrementCounter.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(App, [{
+	    key: '_incrementCounter',
+	    value: function _incrementCounter() {
+	      this.setState({ count: this.state.count + 1 });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement(_Header2.default, { title: this.props.title }),
-	        _react2.default.createElement(_Content2.default, { content: this.props.content, text: this.props.text })
+	        _react2.default.createElement(_Content2.default, { content: this.props.content, text: this.props.text }),
+	        _react2.default.createElement(_Counter2.default, { count: this.state.count, incrementCounter: this._incrementCounter })
 	      );
 	    }
 	  }]);
@@ -19834,6 +19851,103 @@
 	};
 
 	exports.default = Content;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/***** Using State in Counter Component *****/
+	/*
+	class Counter extends React.Component {
+	  constructor(props) {
+	    super(props);
+
+	    this.state = {
+	      count: 0
+	    };
+	  };
+
+	  _incrementCounter() {
+	    this.setState({ count: this.state.count + 1 });
+	  };
+
+	  render() {
+	    return (
+	      <div>
+	      <span>{ this.state.count }</span>
+	      <button onClick={ this._incrementCounter.bind(this) }>Update</button>
+	      </div>
+	    );
+	  };
+	};
+	*/
+
+	/***** Using State in Root Component *****/
+
+	var Counter = function (_React$Component) {
+	  _inherits(Counter, _React$Component);
+
+	  function Counter(props) {
+	    _classCallCheck(this, Counter);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Counter).call(this, props));
+
+	    _this._increment = _this._increment.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(Counter, [{
+	    key: '_increment',
+	    value: function _increment() {
+	      this.props.incrementCounter();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'span',
+	          null,
+	          ' ',
+	          this.props.count
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this._increment },
+	          'Click !'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Counter;
+	}(_react2.default.Component);
+
+	;
+
+	exports.default = Counter;
 
 /***/ }
 /******/ ]);
