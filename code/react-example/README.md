@@ -2,6 +2,7 @@
 
 __Example Code__
 ```js
+/***** webpack.config.js *****/
 'use strict';
 
 module.exports = {
@@ -45,3 +46,41 @@ module.exports = {
 부분이다. (+ 이곳에서는 babel-loader 를 사용하며, query 에 react 및 es2015
 옵션을 주었다.)
 
+```js
+/***** App.js *****/
+import React from 'react';
+import ReactDOM from 'react-dom';
+import List from './List';
+
+class Hello extends React.Component {
+  render() {
+    return (
+      <div className='greeting'>
+        <List name={ this.props.name } />
+      </div>
+    );
+  };
+};
+
+ReactDOM.render(
+  <Hello name="jaewon" />,
+  document.getElementById('example')
+);
+```
+```js
+/***** List.js *****/
+import React from 'react';
+
+class List extends React.Component {
+  render () {
+    return (
+      <div>
+        This Is List!<br />
+        Hello, { this.props.name }!
+      </div>
+    );
+  };
+};
+
+module.exports = List;
+```
