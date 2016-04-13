@@ -165,7 +165,7 @@ import ReactDOM from 'react-dom';
 
 class JavaScriptExpression extends React.Component {
   render() {
-    var text = text';
+    var text = 'text';
     return  (
       <div>
         <h1> I am a { text }.</h1>
